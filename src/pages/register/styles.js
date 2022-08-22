@@ -43,7 +43,7 @@ export const FormDiv = styled.div`
     margin-left: 10%;
     width: 80%;
     
-    margin-top: 12%;
+    margin-top: 15%;
     flex-wrap: wrap;
     
   }
@@ -63,7 +63,7 @@ export const FormDiv = styled.div`
     // display: flex;
     position: absolute;
     right: 50vw;
-    top: 30%;
+    top: 20%;
     // justify-content: center;
     padding-bottom: 5%;
   }

@@ -16,7 +16,7 @@ export const FormDiv = styled.div`
   width: 50%;
   // border: 2px solid green;
   margin: auto;
-  margin-top: 130px;
+  margin-top: 200px;
   // height: 50vh;
   align-items: center;
   // padding: 60px;

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import Header from '../../components/Header'
+import TabComponent from '../../components/tab-navs/TabComponent';
+
 
 function Dashboard() {
 
@@ -61,17 +63,8 @@ function Dashboard() {
 
     <div>
       <Header />
+      <TabComponent />
       
-      <h1>You are not logged in</h1>
-      <h1>You are not logged in</h1>
-
-      <h1>You are not logged in</h1>
-      <h1>You are not logged in</h1>
-      <h1>You are not logged in</h1>
-      <h1>You are not logged in</h1>
-      <h1>You are not logged in</h1>
-
-      <h1>Hi {name}</h1>
 
     </div>
 

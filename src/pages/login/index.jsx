@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -26,20 +27,14 @@ function LoginUser() {
       password: data.password
     }
 
-    // await fetch("http://localhost:8080/api/customer/login", {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': "application/json" },
-    //   credentials: 'include',
-    //   body: JSON.stringify(userData)
-    // })
-
     await axios.post('customer/login', userData)
     .then(response => {
-      console.log(response)
+      alert("Login Successful")
       localStorage.setItem('token', response.data.token)
-      // return response.data
+      window.location = "/dashboard"
     }).catch(err => {
-        console.log(err)
+      alert(err.response.data)
+      console.log(err.response.data)
     })
   };
 

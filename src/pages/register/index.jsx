@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -36,6 +36,8 @@ function RegisterUser() {
 
     await axios.post('customer/register', userData)
     .then(function(response) {
+      alert("Registration successful, please login to continue.")
+      window.location.reload()
       // console.log(response)
       return response.data
     }).catch(err => {

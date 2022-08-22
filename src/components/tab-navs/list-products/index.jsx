@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import "bootstrap/dist/css/bootstrap.css";
-import Header from '../../components/Header'
+// import Header from '../../components/Header'
 import { Card, CardDiv, MainBody } from './styles';
-import Modal from "../../components/Modal"
-import ToggleContent from '../../components/ToggleContent'
+import Modal from "../../Modal"
+import ToggleContent from '../../ToggleContent'
+import Header from '../../Header';
 // import { Modal } from '../../components/Modal';
 
-function Product() {
+function ListProduct() {
 
   const [products, setProducts] = useState([])
   const [quantity, setQuantity] = useState(1)
@@ -22,65 +23,34 @@ function Product() {
     }
   }
 
-  const buyProduct = (productId) => {
-
-    const headers = {
-      'Authorization': localStorage.getItem("token")
+  const config = {
+    headers: {
+      Authorization: localStorage.getItem("token")
     }
-    
-    axios.get("customer/me", {headers: headers})
-      .then(res => {
-        console.log(res.data)
-      }).catch(err => {
-        console.log(err)
-      })
-        
-    const productData = {
-      productId: productId,
-      qty: quantity
-    }
-    console.log(productData)
-    axios.post("products", productData, { headers: headers })
-      .then(res => {
-        console.log(res.data)
-        console.log("Product successfully puchased")
-      }).catch(err => {
-        console.log(err)
-      })
-
-    setTimeout(() => {
-      purchaseSuccess()
-    }, 3000)
-
-    setTimeout(() => {
-      window.reload()
-    })
-    alert("Transaction successful")
-    
   }
 
-  const purchaseSuccess = () => {
-    console.log("Transaction Successful")
-    axios.get("products/downloadPDF",
-      { responseType: 'blob' }
-    )
-      .then(res => {
-        const file = new Blob(
-          [ res.data ],
-          { type: 'application/pdf' }
-        )
-
-        const fileURL = URL.createObjectURL(file)
-
-        window.open(fileURL)
-      }).catch(err => {
-        console.log(err)
-      })
-
+  function parseJWT(token) {
+    if(!token) { return; }
+    const base64URL = token.split('.')[1]
+    const base64 = base64URL.replace('-','+').replace('_', "64")
+    return JSON.parse(window.atob(base64))
   }
+
+  let currentUser = parseJWT(localStorage.getItem("token"))
+
+  // const deleteProduct = (productId) => {
+  //   axios.delete(`products/${productId}`, config)
+  //     .then(res => {
+  //       console.log(res.data)
+  //       alert("Successfully delete product")
+  //     }).catch(err => {
+  //       console.log(err)
+  //     })
+  // }
+
 
   useEffect(() => {
-    axios.get("products/product/list")
+    axios.get(`products/ownerProducts/${currentUser._id}`, config)
     .then(res => {
         setProducts(res.data)
       }).catch(err => {
@@ -90,7 +60,6 @@ function Product() {
 
   return (
     <MainBody>
-      <Header />
 
       <h1>Available Products</h1>
 
@@ -106,17 +75,22 @@ function Product() {
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">Description: {product.desc}</li>
                 <li className="list-group-item">Available Quantity: {product.qty}</li>
-                <li className="list-group-item">Price: #{product.price}</li>
-                <li className="list-group-item">Seller: {product.ownerName}</li>
+                <li className="list-group-item">Price: ${product.price}</li>
               </ul>
               <div className="card-body">
                 <ToggleContent
-                  toggle={show => <button onClick={show}>Order</button>}
+                  toggle={show => (
+                    <div className='buttons'>
+                      <button onClick={show}>Update</button>
+                      <button className='delete'>Delete</button>
+                    </div>
+                  )}
+                  
                   content={hide => (
                     <Modal>
                       <img src={product.imageURL} alt="" />
-                      <p>Price: #{product.price}</p>
-                      <p>Total Amount: #{product.price * quantity}</p>
+                      <p>Price: ${product.price}</p>
+                      <p>Total Amount: ${product.price * quantity}</p>
                       <div className="input">
                         <input type="text" value={quantity} />
                         <button className='inc-dec' onClick={decrementQuantity}>-</button>
@@ -124,7 +98,7 @@ function Product() {
                       </div> 
                       <div className='prod-button'>
                         <button className='cancel' onClick={hide}>Cancel</button>
-                        <button className='buy-product' onClick={() => {buyProduct(product._id); hide() }}>Buy Product</button>
+                        {/* <button className='buy-product' onClick={() => {buyProduct(product._id); hide() }}>Buy Product</button> */}
                       </div>
                     </Modal>
                   )}
@@ -139,4 +113,4 @@ function Product() {
   )
 }
 
-export default Product
+export default ListProduct
