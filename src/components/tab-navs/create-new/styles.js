@@ -54,4 +54,12 @@ export const FormDiv = styled.div`
     border: rgb(5, 141, 84) 2px solid;
   }
 
+  button.submit {
+    background: rgb(5, 141, 84);
+    width: 80px;
+    height: 40px;
+    color: white;
+    border: none;
+  }
+
 `

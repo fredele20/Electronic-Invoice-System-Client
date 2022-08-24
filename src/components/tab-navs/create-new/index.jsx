@@ -110,7 +110,7 @@ function CreateProduct() {
           </div>
 
           <div>
-            <button type='submit'>Submit</button>
+            <button className='submit' type='submit'>Submit</button>
           </div>
         </form>
 

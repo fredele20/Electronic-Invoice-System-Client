@@ -32,6 +32,13 @@ export const Menu = styled.div`
     color: white!important;
   }
 
+  button.logout {
+    background: white;
+    color: rgb(5, 141, 84);
+    border: none;
+    padding: 5px;
+  }
+
   // ul>a> {
   //   text-decoration: none;
   //   color: black;

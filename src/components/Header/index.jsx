@@ -53,7 +53,7 @@ export default function Header() {
               <Link to="/products" style={{ textDecoration: 'none', color: 'white' }}>Product</Link>
               <Link to="/dashboard" style={{ textDecoration: 'none', color: 'white' }}>Hi { name }</Link>
               {/* <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>{ name }</Link> */}
-              <button onClick={logout}>Logout</button>
+              <button className='logout' onClick={logout}>Logout</button>
             </ul>
           </Menu>
 
