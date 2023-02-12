@@ -10,6 +10,14 @@ export const TitleDiv = styled.div`
   font-weight: bold;
   margin-bottom: 3%;
 
+  @media (max-width: 600px) {
+    width: 90vw;
+    position: absolute;
+    right: 3%;
+    top: -5%;
+    font-size: 12px;
+  }
+
 
   div {
     width: 100%;
@@ -18,6 +26,14 @@ export const TitleDiv = styled.div`
 `
 
 export const StyledDiv = styled.div`
+
+  @media (max-width: 600px) {
+    width: 90vw;
+    position: absolute;
+    right: 5%;
+    top: -2%;
+    font-size: 12px;
+  }
   width: 80%;
   height: 40px;
   display: flex;

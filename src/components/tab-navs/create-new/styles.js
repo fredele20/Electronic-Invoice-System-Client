@@ -1,6 +1,20 @@
 import styled from "styled-components"
 
 export const BodyDiv = styled.div`
+
+@media (max-width: 600px) {
+  width: 90vw;
+  padding: 0px;
+  margin: 0px;
+  // background: red;
+  margin-left: -50px;
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+}
+
   width: 80%;
   height: 70vh;
   background: white;
@@ -16,6 +30,42 @@ export const BodyDiv = styled.div`
 `
 
 export const FormDiv = styled.div`
+
+@media (max-width: 600px) {
+  form {
+    flex-direction: column;
+  }
+
+  div.input {
+    width: 90% !important;
+    margin: 0 !important;
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+    // border: 1px solid black;
+  }
+
+  div.input>input {
+    width: 100%;
+    height: 60px !important;
+    border-radius: 5px;
+    // border-style: solid;
+  }
+
+  div.input>textarea {
+    width: 100%;
+    height: 60px !important;
+  }
+
+  div.input>div {
+    font-size: 20px;
+  }
+
+  button.submit {
+    width: 120px !important;
+    height: 60px !important;
+    margin-top: 20px;
+  }
+}
 
   form {
     display: flex;

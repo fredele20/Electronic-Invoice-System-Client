@@ -2,6 +2,20 @@ import styled from "styled-components"
 
 export const ModalDiv = styled.div`
 
+  @media (max-width: 600px) {
+    
+    div.modal {
+      width: 90vw !important;
+      display: flex;
+      position: absolute;
+      left: 5% !important;
+    }
+
+    img {
+      width: 50% !important;
+    }
+  }
+
   // width: 80%;
   // background: yellow;
 
@@ -58,5 +72,9 @@ export const ModalDiv = styled.div`
 
   p {
     margin-bottom: -5px;
+  }
+
+  img {
+    width: 20%;
   }
 `

@@ -8,6 +8,13 @@ export const MainBody = styled.div`
   background-color: white;
   color: black;
 
+  // @media (max-width: 500px) {
+  //   body {
+  //     width: 90%;
+  //     background: black;
+  //   }
+  // }
+
 `;
 
 export const FormDiv = styled.div`
@@ -48,5 +55,39 @@ export const FormDiv = styled.div`
     background: rgb(5, 141, 84);
     color: white;
     align-items: center;  
+  }
+
+
+  @media (max-width: 500px) {
+
+    // border: 1px solid red;
+    width: 80%;
+    form {
+      // border: 1px solid yellow;
+      width: 100%;      
+      margin: auto;
+      // display: flex;
+      // justify-content: center;
+      // flex-direction: column;
+    }
+
+    input {
+      width: 100%;
+    }
+    h1 {
+      display: flex;
+      justify-content: center;
+      font-size: 50px;
+      margin-bottom: 15%;
+    }
+
+
+    button {
+      position: static;
+      width: 130px;
+      height: 50px;
+      margin-left: 30%;
+      margin-top: 15%;
+    }
   }
 `

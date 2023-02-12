@@ -12,6 +12,15 @@ export const MainBody = styled.div`
   div {
     
   }
+
+  @media (max-width: 600px) {
+
+    h1 {
+      margin-top: 40%;
+      margin-bottom: 5%;
+    }
+
+  }
 `
 
 export const CardDiv = styled.div`

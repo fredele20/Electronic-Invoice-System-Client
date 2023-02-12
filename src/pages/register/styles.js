@@ -12,7 +12,6 @@ export const MainBody = styled.div`
 
 export const FormDiv = styled.div`
   display: flex;
-  // padding: 60px;
   justify-content: center;
   padding-top: 5%;
 
@@ -20,7 +19,6 @@ export const FormDiv = styled.div`
   input {
     width: 95%;
     height: 40px;
-    // margin: auto;
     border: none;
     // border-radius: 10px
     border-bottom: 1px solid rgb(5, 141, 84);
@@ -78,6 +76,37 @@ export const FormDiv = styled.div`
     color: white;
     background: rgb(5, 141, 84);
     margin-top: 20px;
+  }
+
+  @media (max-width: 500px) {
+    h1 {
+      position: static;
+      display: flex;
+      justify-content: center;
+      margin-top: 50%;
+      margin-bottom: 5%;
+      font-size: 50px;
+    }
+
+    .input {
+      width: 90vw;
+      margin: auto;
+      flex-direction: column;
+      // margin-top: 10%;
+      margin-bottom: 10%;
+    }
+
+    .input>* {
+      width: 90%;
+      margin-top: 5%;
+    }
+
+    button {
+      position: static;
+      width: 130px;
+      height: 50px;
+      margin-left: 30%;
+    }
   }
 `
 

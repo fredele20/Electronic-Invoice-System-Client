@@ -4,9 +4,13 @@ export const BodyDiv = styled.div`
   width: 80%;
   height: 70vh;
   background: white;
-  padding: 25px;
   margin: auto;
   margin-top: 5%;
+
+  @media (max-width: 600px) {
+
+    background: red;
+  }
 
   h1 {
     display: flex;
@@ -22,6 +26,17 @@ export const MainBody = styled.div`
     margin: auto;
     margin-top: 5%;
     justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 20px;
+      display: block
+      // margin-right: 20%;
+      position: absolute;
+      right: 30%;
+      // left: 20%;
+    }
   }
 
   div {
@@ -40,6 +55,14 @@ export const CardDiv = styled.div`
 
 
 export const Card = styled.div`
+
+@media (max-width: 600px) {
+
+  // background: yellow;
+  width: 90vw;
+  margin-right 20%;
+  margin-top: 25% !important;
+}
 
 // border: green 1px solid;
 

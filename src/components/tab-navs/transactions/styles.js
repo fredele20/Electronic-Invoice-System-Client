@@ -1,11 +1,24 @@
 import styled from "styled-components"
 
 export const BodyDiv = styled.div`
-  // width: 100%;
-  // height: 100vh;
-  // margin: auto;
-  // display: flex;
-  // flex-direction: row-reverse;
+
+  @media (max-width: 600px) {
+
+    .tab-nav-contain {
+      width: 90vw !important;
+      display: block;
+      position: absolute;
+      right: 5%;
+    }
+
+    .tab-nav-contain>li {
+      padding: 10px;
+      width: 90%;
+      text-align: center;
+      color: rgb(5, 141, 84);
+    }
+    
+  }
 
   .tab-nav-contain {
     display: flex;

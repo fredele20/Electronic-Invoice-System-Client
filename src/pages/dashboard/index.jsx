@@ -8,40 +8,6 @@ function Dashboard() {
 
   const [name, setName] = useState('')
 
-  // useEffect(() => {
-  //   const config = {
-  //     headers: {
-  //       Authorization: localStorage.getItem("token")
-  //     }
-  //   }
-  //   (
-  //     async () => {
-  //       await axios.get("customer/me", config)
-  //         .then(res => {
-  //           console.log(res.data)
-  //         }).catch(err => {
-  //           console.log(err)
-  //         })
-  //     }
-  //   )();
-  // }, [])
-
-  // useEffect(() => {
-  //   (
-  //     async () => {
-  //       const response = await axios.get("http://localhost:8080/api/customer/me", {
-  //         headers: {
-  //           Authorization: localStorage.getItem("token")
-  //         }
-  //       })
-
-  //       const content = response.json()
-
-  //       setName(content.name)
-  //     }
-  //   )();
-  // })
-
   useEffect(() => {
     const config = {
       headers: {

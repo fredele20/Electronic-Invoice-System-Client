@@ -31,13 +31,24 @@ export const HomeContainer = styled.div`
     background: rgb(5, 141, 84);
     color: white
   }
+
+  @media (max-width: 500px){
+    body {
+      width: 100vw;
+      background: red;
+    }
+    // h1 {
+    //   font-size: 40px !important;
+    //   width: 100%;
+    // }
+  }
+
 `
 
 export const ContentDiv = styled.div`
   display: flex;
   justify-content: center;
   margin: auto;
-  // height: 100vh;
 
   h1 {
     font-size: 80px;
@@ -50,6 +61,19 @@ export const ContentDiv = styled.div`
   span {
     font-size: 130px;
     color: rgb(5, 141, 84);
+  }
+
+  @media (max-width: 500px) {
+    h1 {
+      // margin: auto;
+      margin-top: 50%;
+      font-size: 70px;
+      width: 80%;
+      margin-bottom: 80px;
+    }
+    span {
+      font-size: 80px;
+    }
   }
 
   
